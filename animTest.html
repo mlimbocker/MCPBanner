@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Playing with HTML5</title>
+<style type='text/css'>
+#bannerCanvas{
+	width:800px;
+	height:600px;
+	margin:15px auto;	
+	border:1px solid #989898;
+	border-radius:5px;	
+}
+</style>
+</head>
+
+<body>
+
+<div>
+	<canvas id='bannerCanvas'>
+    </canvas>
+</div>
+
+</body>
+
+<script type='application/javascript'>
+      window.onload = function() {
+        var canvas=document.getElementById('bannerCanvas');
+		var context=canvas.getContext('2d');
+		circle = {radius:55,origin:{x:200,y:200}};
+		
+		context.beginPath();
+		var gradient = context.createRadialGradient(circle.origin.x,circle.origin.y,0,circle.origin.x,circle.origin.y,circle.radius+13);
+		gradient.addColorStop(0,'rgba(15,206,233,0)');
+		gradient.addColorStop(circle.radius/(circle.radius+13),'rgba(15,206,233,0)');
+		gradient.addColorStop((circle.radius+1)/(circle.radius+13),'rgba(15,206,233,1)');
+		gradient.addColorStop(1,'rgba(15,206,233,1)');
+		context.fillStyle=gradient;
+		context.fill();
+		context.closePath();
+      };
+</script>
+</html>

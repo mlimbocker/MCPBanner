@@ -1,0 +1,567 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Medical Center Plano</title>
+<style type='text/css'>
+	
+	#banner{
+		width:1600px;
+		height:283px;	
+	}
+	
+	#bannerOverlay{
+		z-index:900;	
+		position:relative;
+		top:-283px;
+	}
+	
+	#pageWrapper{
+		width=1600px;	
+	}
+	#bannerSlides{
+		display:block;
+	}
+	
+	div.slideInfo{
+		display:none;	
+	}
+	
+	li.bannerSlide{
+		display:block;	
+	}
+	li.bannerSlide img{
+		width:1600px;
+		height:283px;	
+	}
+	li.active{
+		display:block;	
+	}
+	body{
+		width:100%;	
+	}
+	
+	ul.transSlides{
+		width:500px;
+		list-style-type:none;
+		position:relative;
+		top:-400px;
+		left:800px;
+		z-index:1000;
+	}
+	
+	li.transitionSlide{
+		width:74px;
+		height:45px;
+		margin:0px 10px;
+		float:left;
+	}
+	
+	.selected{
+		position:relative;
+		top:-5px;
+		box-shadow:0px 0px 15px rgb(15,206,233);<br />
+		border:solid 3px rgb(15,206,233);
+		width:84px !important;
+		height:55px !important;
+		margin:0px !important;
+	}
+	
+	.invisible{
+		display:none;	
+	}
+	
+	visible{
+		display:block;	
+	}
+	
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+</head>
+
+<body>
+<div id='pageWrapper'>
+
+    <div id='banner'>
+    	<div id='bgLayer' class='bannerSlide'>
+        
+        </div>
+        <div id='fgLayer' class='bannerSlide'>
+        </div>
+    </div>  
+        <ul id='bannerSlides'>
+            <li class='bannerSlide'>
+                <img class='bgImg' src = 'images/testImg.jpg' />
+                <img class='fgImg' src = 'images/fgImg.png' />
+                <div class='slideInfo'>
+                    <ul>
+                        <li class='originX'>200</li><!--x coordinate of beginning of line-->
+                        <li class='originY'>100</li><!--y coordinate of beginning of line-->
+                        <li class='turnX'>300</li><!--x coordinate of turning point of line-->
+                        <li class='turnY'>200</li><!--y coordinate of turning point of line-->
+                        <li class='destX'>500</li><!--x coordinate of end of line-->
+                        <li class='destY'>200</li><!--y coordinate of end of line-->
+                        <li class='text'>Slide0 Thsi is a really, really long test string</li><!--text for slide-->
+                        <li class='textTop'>150</li><!--y coordinate of top left corner of text-->
+                        <li class='textLeft'>200</li><!--x coordinate of top left corner of text-->
+                        <li class='fontStyle'>normal</li><!--font style of text-->
+                        <li class='fontSize'>28px</li><!--font size of text-->
+                        <li class='fontFamily'>Helvetica</li><!--font family of text-->
+                        <li class='rgbColor'>255,255,255</li><!-- color of text-->
+                    </ul>
+                </div>
+            </li> 
+            <li class='bannerSlide'>
+                <img class='bgImg' src = 'images/mcp_banner.jpg' />
+                <img class='fgImg' src = 'images/fgImg.png' />
+                <div class='slideInfo'>
+                    <ul>
+                        <li class='originX'>300</li>
+                        <li class='originY'>100</li>
+                        <li class='turnX'>500</li>
+                        <li class='turnY'>150</li>
+                        <li class='destX'>750</li>
+                        <li class='destY'>150</li>
+                        <li class='text'>This is Slide1</li>
+                        <li class='textTop'>150</li>
+                        <li class='textLeft'>200</li>
+                        <li class='fontStyle'>normal</li>
+                        <li class='fontSize'>28px</li>
+                        <li class='fontFamily'>Helvetica</li>
+                        <li class='rgbColor'>255,255,255</li>
+                    </ul>
+                </div>
+            </li> 
+            <li class='bannerSlide'>
+                <img class = 'bgImg' src = 'images/testImg.jpg' />
+                <img class = 'fgImg' src = 'images/fgImg.png' />
+                <div class='slideInfo'>
+                    <ul>
+                        <li class='originX'>200</li>
+                        <li class='originY'>100</li>
+                        <li class='turnX'>300</li>
+                        <li class='turnY'>200</li>
+                        <li class='destX'>500</li>
+                        <li class='destY'>200</li>
+                        <li class='text'>This is Slide2</li>
+                        <li class='textWidth'>500</li>
+                        <li class='lineHeight'>28</li>
+                        <li class='textTop'>150</li>
+                        <li class='textLeft'>200</li>
+                        <li class='fontStyle'>normal</li>
+                        <li class='fontSize'>28px</li>
+                        <li class='fontFamily'>Helvetica</li>
+                        <li class='rgbColor'>255,255,255</li>
+                    </ul>
+                </div>
+            </li> 
+            <li class='bannerSlide'>
+                <img class = 'bgImg' src = 'images/buchBanner.jpg' />
+                <img class='fgImg' src = 'images/fgImg.png' />
+                <div class='slideInfo'>
+                    <ul>
+                        <li class='originX'>200</li>
+                        <li class='originY'>200</li>
+                        <li class='turnX'>300</li>
+                        <li class='turnY'>100</li>
+                        <li class='destX'>500</li>
+                        <li class='destY'>100</li>
+                        <li class='text'>Slide3</li>
+                        <li class='textWidth'>500</li>
+                        <li class='lineHeight'>28</li>
+                        <li class='textTop'>150</li>
+                        <li class='textLeft'>200</li>
+                        <li class='fontStyle'>normal</li>
+                        <li class='fontSize'>28px</li>
+                        <li class='fontFamily'>Helvetica</li>
+                        <li class='rgbColor'>255,255,255</li>
+                    </ul>
+                </div>
+            </li>
+            <li class='bannerSlide'>
+                <img class = 'bgImg' src = 'images/hakimBanner.jpg' />
+                <img class='fgImg' src = 'images/fgImg.png' />
+                <div class='slideInfo'>
+                    <ul>
+                        <li class='originX'>200</li>
+                        <li class='originY'>100</li>
+                        <li class='turnX'>300</li>
+                        <li class='turnY'>200</li>
+                        <li class='destX'>500</li>
+                        <li class='destY'>200</li>
+                        <li class='text'>Slide4</li>
+                        <li class='textWidth'>500</li>
+                        <li class='lineHeight'>28</li>
+                        <li class='textTop'>150</li>
+                        <li class='textLeft'>200</li>
+                        <li class='fontStyle'>normal</li>
+                        <li class='fontSize'>28px</li>
+                        <li class='fontFamily'>Helvetica</li>
+                        <li class='rgbColor'>255,255,255</li>
+                    </ul>
+                </div>
+            </li> 
+        </ul>
+    </div>
+    <ul class='transSlides'><!--thumbnails for slides. each thumbnail should coordinate to the same slideIndex-->
+    	<li class='transitionSlide'>
+        	<img src='images/testThumb.png' />
+        </li>
+        <li class='transitionSlide'>
+        	<img src='images/testThumb.png' />
+        </li>
+        <li class='transitionSlide'>
+        	<img src='images/testThumb.png' />
+        </li>
+        <li class='transitionSlide'>
+        	<img src='images/testThumb.png' />
+        </li>
+        <li class='transitionSlide'>
+        	<img src='images/testThumb.png' />
+        </li>
+    </ul>
+</div>
+</body>
+
+<script type='text/javascript'>
+	//constants
+	var NUM_SLIDES = 5;
+	var SLIDE_DELAY = 5000;
+	var CIRCLE_MAX_RADIUS = 10;
+	var CIRCLE_DRAW_TIME = 750;
+	var LINE_DRAW_TIME = 2000;
+	var TEXT_DRAW_TIME = 1500;
+	
+	var slideIndex = NUM_SLIDES-1;
+	var prevSlideIndex=NUM_SLIDES-1;
+	
+	var animState = {
+			isAnimating:false,
+			isSliding:true,
+			isDrawingLine:false,
+			isPaused:false
+		}
+	//background canvas
+	var bgCanvas = $('#bgCanvas')[0];
+	var bgContext = bgCanvas.getContext('2d');
+	//foreground canvas
+	var fgCanvas = $('#fgCanvas')[0];
+	var fgContext = fgCanvas.getContext('2d');
+	//graphics and text canvas
+	var gfxCanvas = $('#gfxCanvas')[0];
+	var gfxContext = gfxCanvas.getContext('2d');
+	
+	var imgOne = {
+		x:0,
+		y:0,
+		xOffset:0,
+		width:canvas.width,
+		height:canvas.height,
+		bgSrc:'',
+		fgSrc:''
+	}
+	var imgTwo = {
+		x:1600,
+		y:0,
+		xOffset:0,
+		width:canvas.width,
+		height:canvas.height,
+		bgSrc:'',
+		fgSrc:''
+	}
+	var lineCoords = {
+		//the origin of the path
+		start:{
+			x:200,
+			y:100	
+		},
+		//the turning point of the path
+		turn:{
+			x:300,
+			y:200
+		},
+		//the end of the path
+		dest:{
+			x:500,
+			y:200,
+		},
+		//progress from origin to turn
+		offset:{
+			x:0,
+			y:0
+		},
+		//progress from turn to finish
+		finish:{
+			x:0,
+			y:200
+		},
+		turned:false
+	}
+	var circle = {
+		origin:{
+			x:0,
+			y:0
+		},
+		radius:0
+	}
+	var textBox = {
+		width:500,
+		lineHeight:28,	
+		opacity:0,
+		top:250,
+		left:100,
+		content:"Hello World!",
+		style:"normal",
+		size:"28px",
+		family:"Helvetica",
+		rgb:"255,255,255"
+	}
+	var timeVar;
+	
+	window.requestAnimFrame = (function(callback) {
+        return window.requestAnimationFrame || 
+        window.webkitRequestAnimationFrame || 
+        window.mozRequestAnimationFrame || 
+        window.oRequestAnimationFrame || 
+        window.msRequestAnimationFrame ||
+        function(callback) {
+          window.setTimeout(callback, 1000 / 60);
+        };
+      })();
+	
+	
+	function slideInit(){
+		var bgImg = new Image();
+		var fgImg = new Image();
+		
+		$(bgImg).attr('src', $('#bannerSlides li.bannerSlide img.bgImg').eq(0).attr('src'));
+		$(fgImg).attr('src', $('#bannerSlides li.bannerSlide img.fgImg').eq(0).attr('src'));
+		
+		bgContext.drawImage(bgImg,0,0,1600,283);					
+		fgContext.drawImage(fgImg,0,0,1600,283);
+		
+	};
+	
+	function drawSlides(canvas, context, imgOne, imgTwo){
+		var slideOneBG = new Image();
+		var slideOneFG = new Image();
+		
+		var slideTwoBG = new Image();
+		var slideTwoFG = new Image();
+		
+		slideOneBG.src = imgOne.bgSrc;
+		slideOneFG.src = imgOne.fgSrc;
+		
+		slideTwoBG.src = imgTwo.bgSrc;
+		slideTwoFG.src = imgTwo.fgSrc;
+		
+		context.drawImage(slideOneBG,imgOne.x-imgOne.xOffset,imgOne.y,imgOne.width,imgOne.height);
+		context.drawImage(slideOneFG,imgOne.x-imgOne.xOffset,imgOne.y,imgOne.width,imgOne.height);
+		
+		context.drawImage(slideTwoBG,imgTwo.x-imgTwo.xOffset,imgTwo.y,imgTwo.width,imgTwo.height);
+		context.drawImage(slideTwoFG,imgTwo.x-imgTwo.xOffset,imgTwo.y,imgTwo.width,imgTwo.height);
+	};
+	
+	function drawCircle(canvas, context, circle){
+		context.beginPath();
+		var gradient= context.createRadialGradient(circle.origin.x,circle.origin.y,circle.radius,circle.origin.x,circle.origin.y,circle.radius+5);
+		gradient.addColorStop(0,'rgba(15,206,223,0)');
+		gradient.addColorStop(.7,'rgba(15,206,233,1)');
+		gradient.addColorStop(1,'rgba(15,206,233,.2)');
+		context.fillStyle=gradient;
+		if(!animState.isSliding){
+			context.arc(circle.origin.x,circle.origin.y,circle.radius+4,0,2*Math.PI);	
+		}
+		context.fill();
+		context.closePath();
+	};
+	
+	function drawLine(canvas, context, lineCoords){
+			context.beginPath();
+			//calculate slope of angled line
+			var slope=(lineCoords.turn.y-lineCoords.start.y)/(lineCoords.turn.x-lineCoords.start.x);
+			var gradOffset=2;
+			
+			context.moveTo(lineCoords.start.x,lineCoords.start.y);
+			context.lineTo(lineCoords.start.x + lineCoords.offset.x, lineCoords.start.y +lineCoords.offset.y);
+			context.stroke();
+			if(lineCoords.turned){
+				fillGradient=context.createLinearGradient(lineCoords.start.x,lineCoords.finish.y-2,lineCoords.start.x,lineCoords.finish.y+2);
+			fillGradient.addColorStop(0,'rgba(15,206,223,0)');
+			fillGradient.addColorStop(.5,'rgba(15,206,223,.8)');
+			fillGradient.addColorStop(1,'rgba(15,205,233,0)');
+			context.fillStyle=fillGradient;
+				context.rect(lineCoords.start.x + lineCoords.offset.x,lineCoords.finish.y-2, lineCoords.finish.x, 4);	
+			}
+			context.lineWidth = 2;
+			context.strokeStyle = '#0fcedf';
+			context.fill();
+			context.closePath();
+	};
+	
+	function drawText(canvas, context, text, opacity){
+		context.font=textBox.style+' '+textBox.size+' '+textBox.family;
+		context.fillStyle = 'rgba(255,255,255,'+opacity+')';
+		
+		var words = text.split(' ');
+        var line = '';
+		var testLine = '';
+		var newTop = textBox.top;
+		
+        for(var n = 0; n < words.length; n++) {
+          testLine = line + words[n] + ' ';
+          var metrics = context.measureText(testLine);
+          var testWidth = metrics.width;
+          if(testWidth > textBox.width) {
+            context.fillText(line, textBox.left, newTop);
+            line = words[n] + ' ';
+            newTop += textBox.lineHeight;
+          }
+          else {
+            line = testLine;
+          }
+        }
+        context.fillText(line, textBox.left, newTop);
+	}
+	
+	function animateSlide(canvas, context, imgOne, imgTwo, startTime, animState){
+		if(animState.isAnimating){
+	
+			// update
+			var time =new Date().getTime() 
+			var timeDiff= time - startTime;
+			var speed = 1000;
+			var lineSpeed = LINE_DRAW_TIME/(Math.sqrt(Math.pow(lineCoords.turn.x-lineCoords.start.x,2)+Math.pow(lineCoords.turn.y-lineCoords.start.y,2))+Math.sqrt(Math.pow(lineCoords.dest.x-lineCoords.turn.x,2)+Math.pow(lineCoords.dest.y-lineCoords.start.y,2)));
+			var circleSpeed = CIRCLE_DRAW_TIME/CIRCLE_MAX_RADIUS;
+			var opacitySpeed = TEXT_DRAW_TIME/100;
+			
+			//calculate new image location
+			var newX = speed * timeDiff/1000 + .5 * Math.pow(timeDiff/1000,2);
+			
+			var slope = {
+				x:0,
+				y:0	
+			}
+			
+			//get slope of line
+			if(lineCoords.start.x + lineCoords.offset.x < lineCoords.turn.x){
+				slope.x=lineCoords.turn.x - lineCoords.start.x;
+				slope.y=lineCoords.turn.y - lineCoords.start.y;	
+			}
+			
+			var newLineX;
+			var newLineY;
+			
+			//updatelineCoords
+			if(!lineCoords.turned){
+				newLineX = slope.x * lineSpeed * timeDiff/1000
+				newLineY = slope.y * lineSpeed * timeDiff/1000
+			}
+			else{
+				newLineX = 100 * lineSpeed * timeDiff/1000;	
+			}
+			
+			//upadte circleRadius
+			var radiusGrowth = circleSpeed * timeDiff/1000;
+			
+			//update textBox.opacity
+			var opacityDelta =  timeDiff/1000;
+			
+			//if Images are not done sliding, update Image location
+			if(animState.isSliding){
+				if(imgOne.xOffset <= canvas.width){
+					imgOne.xOffset += newX;				
+					imgTwo.xOffset += newX;
+				}
+				else
+				{
+					imgOne.xOffset = canvas.width;
+					imgTwo.xOffset = canvas.width;	
+					animState.isDrawingCircle = true;
+					animState.isSliding = false;
+				}
+			}
+			//if Circle is drawing, update circle size
+			if(animState.isDrawingCircle){
+				if(circle.radius < CIRCLE_MAX_RADIUS){
+					circle.radius += radiusGrowth;	
+				}
+				else{
+					circle.radius = CIRCLE_MAX_RADIUS;
+					animState.isDrawingCircle = false;
+					animState.isDrawingLine = true;	
+				}
+			}
+			//if LIne is drawing, update line location
+			if(animState.isDrawingLine){
+				if(!lineCoords.turned){
+					if(lineCoords.start.x + lineCoords.offset.x < lineCoords.turn.x){
+						lineCoords.offset.x += newLineX;
+						lineCoords.offset.y += newLineY;
+					}
+					else{
+						lineCoords.offset.x = lineCoords.turn.x-lineCoords.start.x;
+						lineCoords.offset.y = lineCoords.turn.y-lineCoords.start.y;
+						lineCoords.turned=true;
+					}
+				}
+				else{
+					if(lineCoords.offset.x + lineCoords.finish.x < lineCoords.dest.x){
+						lineCoords.finish.x += newLineX;
+					}
+					else{
+						lineCoords.finish.x=lineCoords.dest.x-lineCoords.offset.x;
+						animState.isDrawingText = true;
+						animState.isDrawingLine = false;	
+					}
+				}
+			}
+			if(animState.isDrawingText){
+				if(textBox.opacity + opacityDelta < 1)
+					textBox.opacity += opacityDelta
+				else{
+					textBox.opacity=1;
+					animState.isDrawingText=false;
+					animState.isAnimating=false;	
+				}
+			}
+			
+			// clear
+			
+			context.clearRect(0, 0, canvas.width, canvas.height);
+			
+			// render
+			drawSlides(canvas, context, imgOne, imgTwo);
+			drawCircle(canvas, context, circle);
+			drawLine(canvas, context, lineCoords);
+			drawText(canvas, context, textBox.content, textBox.opacity);
+			
+			
+			// request new frame
+				requestAnimFrame(function() {
+				animateSlide(canvas, context, imgOne, imgTwo, time, animState);
+			});
+		}
+		else{
+			if(!animState.isPaused)
+				timeVar=setTimeout('transitionSlide()', SLIDE_DELAY);	
+		}
+	};
+	
+	
+	function transitionSlide(){
+			$('li.bannerSlide').eq(slideIndex).fadeIn('slow');
+	};
+	
+	
+	$('li.transitionSlide').click(function(){
+		transitionSlide();
+	});
+	
+	$(document).ready(function(){
+			transitionSlide();
+		});
+
+</script>
+</html>

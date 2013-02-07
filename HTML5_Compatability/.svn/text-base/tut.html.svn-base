@@ -1,0 +1,211 @@
+<h2>Create an HTML 5 Layout That Works in Internet Explorer</h2>
+
+<img src="preview.jpg" alt="preview" width="200" height="200"/>
+
+<p>
+	HTML 5 provides some great new features for web designers who want to code readable, 
+	semantically-meaningful layouts. However, support for HTML 5 is still evolving, and 
+	Internet Explorer is the last to add support. In this tutorial, we'll create a common 
+	layout using some of HTML 5's new semantic elements, then use JavaScript and CSS to 
+	make our design backwards-compatible with Internet Explorer. Yes, even IE 6. 
+</p>
+
+<!--more-->
+
+
+<h3>Tutorial Details</h3>
+<ul>
+	<li><b>Technology</b>: HTML</li>
+	<li><b>Version</b>: 5</li>
+	<li><b>Difficulty:</b> Intermediate</li>
+	<li><b>Estimated Completion Time:</b> 1 hour</li>
+</ul>
+
+<h2>Quick Overview of HTML 5 Elements</h2>
+<p>
+	The <a href="http://www.w3.org/TR/2009/WD-html5-20090423/">HTML 5 Working Draft</a> provides a new set of semantically-meaningful 
+	elements for describing a typical web page layout. Using elements that are "meaningful" (i.e. describe the content they contain) 
+	makes it easier for you to read and organize your code, and makes it easier for search engines and screen readers to read and 
+	organize your content. 
+</p>
+<p>
+	The HTML 5 elements we'll be using are: 
+</p>
+<ul>
+	<li>header</li>
+	<li>footer</li>
+	<li>nav</li>
+	<li>article</li>
+	<li>hgroup</li>
+</ul>
+<p>
+	Just by reading the names of the elements, you should get a pretty good idea of what they're for, and that's the point! 
+	You can now stop abusing &lt;div&gt; in all your tableless designs, and instead make headers out of "&lt;header&gt;"s and
+	footers out of "&lt;footer&gt;"s.  
+</p>
+<p>
+	The one element that may not be obvious is &lt;hgroup&gt;. This element simply defines a group of header elements (&lt;h1&gt; 
+	- &lt;h6&gt;) so you can group a blog post title and subtitle together, for example. Think of it as not the header of the page,
+	but the header of the content section.
+</p>
+
+<h3>Step 1: The HTML</h3>
+
+<p>
+	We're going to recreate the most common layout on the Web, the 2-column layout:
+</p>
+<div class="tutorial_image"><img src="2_Column_Layout.png" border="0" /></div>
+<p>
+	This layout is usually put together with a waterfall of &lt;div&gt; elements (or, shudder, a &lt;table&gt;), but with HTML 5
+	you can code this page quite naturally. 
+</p>
+<pre name="code" class="html">
+	&lt;!DOCTYPE html>
+	&lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	
+	&lt;html>
+		&lt;head>
+		    &lt;title>&lt;!-- Your Title -->&lt;/title>
+		&lt;/head>
+		
+		&lt;body>
+			&lt;header>
+				&lt;!-- ... -->
+			&lt;/header>
+		
+			&lt;nav>
+				&lt;!-- ... -->
+			&lt;/nav>
+		
+			&lt;div id="main">
+				&lt;!-- ... -->
+			&lt;/div>
+		
+			&lt;footer>
+				&lt;!-- ... -->
+			&lt;/footer>
+		&lt;/body>	
+	&lt;/html>
+</pre>
+<p>And to round it out, within the "main" element, I'm going to add some simple post templates:</p>
+<pre name="code" class="html">
+	&lt;article>
+		&lt;hgroup>
+			&lt;h2>Title&lt;/h2>
+			&lt;h3>Subtitle&lt;/h3>
+		&lt;/hgroup>
+		
+		&lt;p>
+			&lt;!-- --->
+		&lt;/p>
+	&lt;/article>
+</pre>
+<p>
+	Now we have an entire layout skeleton in HTML that uses nothing but meaningful tags for all the content. Easy to read, 
+	easy to parse, easy to design for.
+</p>
+<p>
+	Some savvier readers may ask "why didn't you use &lt;section> instead of a &lt;div> for the main column? Wouldn't that 
+	be more "meaningful?" You certainly could, and it would be "valid," but the &lt;section> element isn't meant for this 
+	sort of layout function. From <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/sections.html#the-section-element">the spec</a>:
+</p>
+<blockquote>
+	The section element is not a generic container element. When an element is needed for styling purposes or 
+	as a convenience for scripting, authors are encouraged to use the &lt;div> element instead. A general rule is that 
+	the section element is appropriate only if the element's contents would be listed explicitly in the document's outline.
+</blockquote>
+
+<h3>Step 2: The CSS</h3>
+
+<p>
+	Positioning these elements would be easy if they were all &lt;div&gt;s &mdash; we know how they are handled by every browser, so
+	we know how to write CSS to them. However, this is only the case because every browser applies a default stylesheet to a page. 
+	Even if you haven't specified one, there is CSS at work every time a page you've written gets loaded into Firefox or IE. 
+</p>
+<p>
+	For example, here's the styling applied to a &lt;div&gt; in the default "html.css" file that comes with Firefox: 
+</p>
+<pre name="code" class="css">
+	html, div, map, dt, isindex, form {
+		display: block;
+	}	
+</pre>
+<p>
+	But what happens when a browser comes across an element that it doesn't recognize? We can't be sure. It might get no styling, 
+	it might inherit a some default styling, it might not be displayed at all. Therefore, we make sure that we account for any and
+	all styling of our new elements in our own CSS. No assumptions. 
+</p>
+<pre name="code" class="css">
+	/* Make HTML 5 elements display block-level for consistent styling */
+	header, nav, article, footer, address { 
+		display: block; 
+	}
+</pre>
+<p>
+	Now we can treat these elements just like &lt;div&gt;s, assured they are displayed consistently. 
+</p>
+
+<h3>The Problem</h3>
+
+<p>
+	Let's take a look at our layout so far. I've put together a more fleshed out version of this code and tested it in 
+	a few browsers. Check out our layout in Safari 4:
+</p>
+<div class="tutorial_image"><img src="./screenshots/HTMLDemo_Safari.png" border="0" /></div>
+<p>
+	However, look at what happens in Internet Explorer 6: 
+</p>
+<div class="tutorial_image"><img src="./screenshots/HTMLDemo_IE_Broken.png" border="0" /></div>
+<p>
+	What's wrong with this picture? By explicitly setting <code>display: block;</code> in CSS, we <em>should</em> have
+	communicated to the browser our intentions for that element.
+</p>
+<p>	
+	Unfortunately, IE is ignoring elements it doesn't recognize, regardless of CSS. Our content is left floating in its 
+	parent's container, as if the HTML 5 elements didn't exist. Somehow, we need to get IE to render unknown elements, 
+	and styling them appropriately isn't going to do it. 
+</p>
+
+<h3>Step 3: The JavaScript</h3>
+<p>
+	Luckily, there is a way to get IE to recognize new elements via some simple JavaScript. 
+</p>
+<p>
+	I first read about this technique on <a href="http://ejohn.org/blog/html5-shiv/">John Resig's blog</a>; he's called it 
+	the "HTML 5 Shiv." It simply involves calling <code>document.createElement()</code> for every new, unrecognized element. 
+</p>
+</p>
+	Traditionally you'd make this call in order to inject an element directly into some branch of the DOM; in other words,
+	into an existing container within the &lt;body> tag. You can do that to fix this unknown element issue as well. However, 
+	this trick also works by calling <code>document.createElement()</code> in the &lt;head> tag, with no refence to a containing element!
+	That makes it much easier to read and write: 
+</p>
+<pre name="code" class="js">
+	document.createElement("article");
+	document.createElement("footer");
+	document.createElement("header");
+	document.createElement("hgroup");
+	document.createElement("nav");
+</pre>
+<p>
+	To make things even more convenient, <a href="http://remysharp.com/">Remy Sharp</a> has released an 
+	"<a href="http://remysharp.com/2009/01/07/html5-enabling-script/">HTML 5 Enabling Script</a>," which does the same thing as 
+	our code above, but for all HTML 5 elements. 
+</p>
+<p>
+	Now that we've added our JavaScript, let's look at that again in Internet Explorer, with our new JS code:
+</p>
+<div class="tutorial_image"><img src="./screenshots/HTMLDemo_IE_Fixed.png" border="0" /></div>
+<p>
+	Perfect. Internet Explorer 6 is now rendering HTML 5 code just as well as Safari 4.
+</p>
+
+<h3>Conclusion</h3>
+
+<p>
+	HTML 5 is exciting for any web designer who wants to create clean, easy-to-read, semantically-meaningful code. And with just a 
+	couple of simple steps &mdash; one line of CSS and one line of JS per element &mdash; we can start making use of HTML 5 today. 
+</p>
+<p>
+	Got any more tips for squeezing every bit of HTML 5 you can into your production code? Let us know in the comments!
+</p>

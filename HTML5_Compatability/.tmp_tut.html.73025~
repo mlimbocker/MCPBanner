@@ -1,0 +1,129 @@
+<h2>Create an HTML 5 Layout That Works in Internet Explorer</h2>
+
+<img src="preview.jpg" alt="preview" width="200" height="200"/>
+
+<p>
+	HTML 5 provides some great new features for web designers who want to code readable, 
+	semantically-meaningful layouts. However, support for HTML 5 is still evolving, and 
+	Internet Explorer is the last to add support. In this tutorial, we'll create a common 
+	layout using some of HTML 5's new semantic elements, then use JavaScript and CSS to 
+	make our design backwards-compatible. 
+</p>
+
+<!--more-->
+
+
+<h3>Tutorial Details</h3>
+<ul>
+	<li><b>Technology</b>: HTML</li>
+	<li><b>Version</b>: 5</li>
+	<li><b>Difficulty:</b> Intermediate</li>
+	<li><b>Estimated Completion Time:</b> 1 hour</li>
+</ul>
+
+<h2>Quick Overview of HTML 5 Elements</h2>
+<p>
+	The HTML 5 Working Draft provides a new set of semantically-meaningful elements for describing a typical web page layout. 
+	Using elements that are "meaningful" (i.e. describe the content they contain) makes it easier for you to read and organize your 
+	code, and makes it easier for search engines and screen readers to read and organize your content. 
+</p>
+<p>
+	The HTML 5 elements we'll be using are: 
+</p>
+<ul>
+	<li>header</li>
+	<li>footer</li>
+	<li>nav</li>
+	<li>article</li>
+	<li>hgroup</li>
+</ul>
+<p>
+	Just by reading the names of the elements, you should get a pretty good idea of what they're for, and that's the point! 
+	You can now stop abusing &lt;div&gt; in all your tableless designs, and instead make headers out of "&lt;header&gt;"s and
+	footers out of "&lt;footer&gt;"s.  
+</p>
+<p>
+	The one element that may not be obvious is &lt;hgroup&gt;. This element simply defines a group of header elements (&lt;h1&gt; 
+	- &lt;h6&gt;) so you can group a blog post title and subtitle together, for example. Think of it as not the header of the page,
+	but the header of the content section.
+</p>
+
+<h3>Step 1: The HTML</h3>
+<p>Then for each step, just write some text describing the step and provide an image which is less than 600px wide.</p>
+
+<pre name=ÓcodeÓ class=ÓhtmlÓ>
+&lt;!DOCTYPE html>
+&lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+&lt;html>
+	
+	&lt;head>
+	    &lt;title>An HTML5 Layout That Works in IE&lt;/title>
+		&lt;link rel="stylesheet" href="css/HTML5_Compatible.css" type="text/css" />
+		&lt;script type="text/javascript" src="js/HTML5Elements.js">&lt;/script>
+	&lt;/head>
+	
+	&lt;body>
+		&lt;div id="page">
+			
+			&lt;header>
+				&lt;h1>HTML 5 Demo&lt;/h1>
+				&lt;img id="logo" src="header.png" alt="Welcome to my demo!">
+			&lt;/header>
+		
+			&lt;nav>
+				&lt;ul id="links">
+					&lt;li>Home&lt;/li>
+					&lt;li>About&lt;/li>
+					&lt;li>Contact&lt;/li>
+				&lt;/ul>
+			&lt;/nav>
+		
+			&lt;div id="posts">
+				
+				&lt;article>
+					&lt;hgroup>
+						&lt;h2>Post 1&lt;/h2>
+						&lt;h3>This one's first&lt;/h3>
+					&lt;/hgroup>
+					
+					&lt;p>This is my first excerpt&lt;/p>
+				&lt;/article>
+				
+				&lt;article>
+					&lt;hgroup>
+						&lt;h2>Post 2&lt;/h2>
+						&lt;h3>This one's second&lt;/h3>
+					&lt;/hgroup>
+					
+					&lt;p>This is my second excerpt&lt;/p>
+				&lt;/article>
+			
+			&lt;/div>
+		
+			&lt;footer>
+				&lt;address>
+					&lt;a href="mailto:foo@bar.com">Feedback&lt;/a>
+				&lt;/address>
+				&lt;p>Copyright boilerplate&lt;/p>
+			&lt;/footer>
+			
+		&lt;/div>
+	&lt;/body>
+		
+&lt;/html>
+	
+	
+</pre>
+
+<div class="tutorial_image"><img src="1.jpg" border="0" /></div>
+
+<!-- Step 2: The CSS -->
+<!-- The Problem -->
+<!-- Step 3: JavaScript HTML5 Shiv -->
+<!-- Conclusion -->
+
+
+<h3>Step 2</h3>
+<p>Then for each step, just write some text describing the step and provide an image which is less than 600px wide.</p>
+<div class="tutorial_image"><img src="2.jpg" border="0" /></div>

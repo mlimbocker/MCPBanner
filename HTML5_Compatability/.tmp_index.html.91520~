@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<html>
+	
+	<head>
+	    <title>An HTML5 Layout That Works in IE</title>
+		<link rel="stylesheet" href="css/HTML5_Compatible.css" type="text/css">
+		
+		<script type="text/javascript">
+			/* 
+			 * Create HTML5 elements for IE's sake
+			 * Reference: http://ejohn.org/blog/html5-shiv/
+			 * Reference: http://remysharp.com/2009/01/07/html5-enabling-script/
+			 */
+			document.createElement("header");
+			document.createElement("nav");
+			document.createElement("footer");
+			document.createElement("article");
+		</script>
+	</head>
+	
+	<body>
+		<div id="page">
+			
+			<header>
+				<h1>HTML 5 Demo</h1>
+				<img id="logo" src="header.png" alt="Welcome to my demo!">
+			</header>
+		
+			<nav>
+				<ul id="links">
+					<li>Home</li>
+					<li>About</li>
+					<li>Contact</li>
+				</ul>
+			</nav>
+		
+			<div id="posts">
+				
+				<article>
+					<hgroup>
+						<h2>Post 1</h2>
+						<h3>This one's first</h3>
+					</hgroup>
+					
+					<p>This is my first excerpt</p>
+				</article>
+				
+				<article>
+					<hgroup>
+						<h2>Post 2</h2>
+						<h3>This one's second</h3>
+					</hgroup>
+					
+					<p>This is my second excerpt</p>
+				</article>
+			
+			</div>
+		
+			<footer>
+				<address>
+					<a href="mailto:foo@bar.com">Feedback</a>
+				</address>
+				<p>Copyright boilerplate</p>
+			</footer>
+			
+		</div>
+	</body>
+		
+</html>

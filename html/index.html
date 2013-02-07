@@ -1,0 +1,553 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Medical Center Plano</title>
+<style type='text/css'>
+	/*
+	#banner{
+		position:relative;
+		width:1600px;
+		height:283px;	
+		z-index:8000;
+	}
+	
+	div.overlay{
+		margin:0;
+		padding:0;
+		width:1600px;
+		height:283px;
+		position:absolute;
+		top:0;
+		left:0;
+		z-index:500;
+		background-image:url('images/bannerOverlay.png');
+	}
+	
+	div.foreground img{
+		z-index:5000;	
+	}
+	
+	div.background img{
+		z-index:-100;	
+	}
+	
+	#oldSlide div, #newSlide div{
+		width:1600px;
+		height:283px;
+		margin:0;
+		padding:0;
+		background-image:url('');	
+	}
+	
+	#pageWrapper{
+		width=1600px;	
+	}
+	
+	div.slideInfo{
+		display:none;	
+	}
+	
+	li.bannerSlide img{
+		width:1600px;
+		height:283px;	
+	}
+	li.active{
+		display:block;	
+	}
+	
+	body{
+		width:100%;	
+	}
+	
+	#bannerSlides{
+		list-style-type:none;	
+	}
+	
+	ul.transSlides{
+		position:absolute;
+		top:175px;
+		left:850px;
+		width:500px;
+		list-style-type:none;
+		
+	}
+	
+	li.transitionSlide{
+		position:relative;
+		width:74px;
+		height:45px;
+		margin:0px 10px;
+		float:left;
+		z-index:10000;
+	}
+	
+	li.transitionSlide img{
+		width:100%;
+		height:100%;	
+	}
+	
+	.selected{
+		position:relative;
+		top:-5px;
+		box-shadow:0px 0px 20px rgb(15,206,233);
+		border:none;
+		width:84px !important;
+		height:55px !important;
+		margin:0px !important;
+	}
+	
+	.invisible{
+		display:none;	
+	}
+	
+	.visible{
+		display:block;	
+	}
+	
+	.fgImg{
+		position:absolute;
+		top:0;
+		left:0;
+		z-index:5000;
+	}
+	
+	.bgImg{
+		position:absolute;
+		top:0;
+		left:0;	
+	}
+	
+	div.infoText{
+		position:absolute;	
+		width:500px;
+		height:100px;
+		z-index:8000;
+		padding:0;
+		margin:0;
+	}
+	
+	div.infoText p{
+		margin:0;
+		padding:0;	
+		color:#ffffff;
+		font-size:24px;
+		font-family:Arial, Helvetica, sans-serif;
+		line-height:1em;
+	}
+	
+	div.infoText a{
+		color:#0fcedf;
+		font-size:24px;
+		margin:0;
+		text-decoration:none;
+	}
+	svg{
+		z-index:9000;	
+	}
+	
+	#bannerSlides a img.arrow{
+		width:8px;
+		height:13px;
+		margin-left:5px;	
+	}
+	*/
+</style>
+<link type='text/css' href='styles/homepage_banner.css' />
+<!--[if lt IE 9]>
+<style>
+	.selected{
+    filter:progid:DXImageTransform.Microsoft.Shadow(Color=#0fcedf, Strength=5, Direction=0),
+         progid:DXImageTransform.Microsoft.Shadow(Color=#0fcedf, Strength=5, Direction=90),
+         progid:DXImageTransform.Microsoft.Shadow(Color=#0fcedf, Strength=5, Direction=180),
+         progid:DXImageTransform.Microsoft.Shadow(Color=#0fcedf, Strength=5, Direction=270);
+     top:-10px;
+    }
+</style>
+<![endif]-->
+<script type='text/javascript' src='js/raphael-min.js'></script>
+<script src="js/jquery-1.4.3.min.js"></script>
+</head>
+
+<body>
+<div id='pageWrapper'>
+
+    <div id='banner'>
+    	
+        <div class='overlay'></div>
+        <ul id='bannerSlides'>
+            <li class='bannerSlide visible'>
+            	<div class='background'>
+                	<img class='bgImg' src = 'images/banner1.jpg' />
+                </div>
+            	<div class='foreground'>
+                	<img class='fgImg' src = 'images/blank.png' />
+                </div>
+                <div class='infoText invisible'>
+                	<p>
+                    	Personalized knee implants are specifically designed to fit you to avoid sizing and fit issues.
+                    </p>
+                    <a href=''>Learn More About ConforMIS<img class='arrow' src='images/slideArrow.gif' /></a>
+                </div>
+
+                <div class='slideInfo'>
+                    <ul>
+                        <li class='originX'>736</li><!--x coordinate of beginning of line-->
+                        <li class='originY'>153</li><!--y coordinate of beginning of line-->
+                        <li class='turnX'>839</li><!--x coordinate of turning point of line-->
+                        <li class='turnY'>121</li><!--y coordinate of turning point of line-->
+                        <li class='destX'>1040</li><!--x coordinate of end of line-->
+                        <li class='destY'>121</li><!--y coordinate of end of line-->
+                        <li class='textTop'>50</li><!--y coordinate of top left corner of text-->
+                        <li class='textLeft'>1000</li><!--x coordinate of top left corner of text-->
+                        <li class='textWidth'>500</li>
+                        <li class='lineHeight'>26px</li>
+                        <li class='fontStyle'>normal</li><!--font style of text-->
+                        <li class='fontSize'>28</li><!--font size of text-->
+                        <li class='fontFamily'>Helvetica</li><!--font family of text-->
+                        <li class='rgbColor'>255,255,255</li><!-- color of text-->
+                    </ul>
+                </div>
+            </li> 
+            <li class='bannerSlide invisible'>
+            	<div class='background'>
+                	<img class='bgImg' src = 'images/banner2.jpg' />
+                </div>
+                <div class='foreground'>
+                	<img class='fgImg' src = 'images/blank.png' />
+                </div>
+                <div class='infoText invisible'>
+                	<p> 
+                    	Our orthopedic surgeons are among the most highly respected and trusted in the area.
+                    </p>
+                    <a href=''>Visit the Physician Directory<img class='arrow' src='images/slideArrow.gif' /></a>
+                </div>
+                
+                <div class='slideInfo'>
+                    <ul>
+                        <li class='originX'>776</li>
+                        <li class='originY'>257</li>
+                        <li class='turnX'>876</li>
+                        <li class='turnY'>175</li>
+                        <li class='destX'>1076</li>
+                        <li class='destY'>175</li>
+                        <li class='textWidth'>500</li>
+                        <li class='lineHeight'>26px</li>
+                        <li class='textTop'>100</li>
+                        <li class='textLeft'>800>/li>
+                        <li class='fontSize'>28px</li>
+                        <li class='fontFamily'>Helvetica</li>
+                        <li class='rgbColor'>255,255,255</li>
+                    </ul>
+                </div>
+            </li> 
+            <li class='bannerSlide invisible'>
+            	<div class='background'>
+	                <img class = 'bgImg' src = 'images/banner3.jpg' />
+                </div>
+                <div class='foreground'>
+	                <img class = 'fgImg' src = 'images/banner1FG.png' />
+                </div>
+                
+                <div class='infoText invisible'>
+                	<p> 
+                    	&quot;I was in my room by 6 p.m. on the day of my surgery and my RNs were right there to welcome me and get all my information.&quot; – Knee-replacement patient
+                    </p>
+                    <a href=''>View More Testimonials<img class='arrow' src='images/slideArrow.gif' /></a>
+                </div>
+                
+                <div class='slideInfo'>
+                    <ul>
+                        <li class='originX'>736</li> 
+                        <li class='originY'>153</li>
+                        <li class='turnX'>839</li>
+                        <li class='turnY'>121</li>
+                        <li class='destX'>1040</li>
+                        <li class='destY'>121</li>
+                        <li class='textTop'>50</li>
+                        <li class='textLeft'>1000</li>
+                        <li class='textWidth'>500</li>
+                        <li class='lineHeight'>26px</li>
+                        <li class='fontStyle'>normal</li>
+                        <li class='fontSize'>20</li>
+                        <li class='fontFamily'>Helvetica</li>
+                        <li class='rgbColor'>255,255,255</li>
+                    </ul>
+                </div>
+            </li> 
+            <li class='bannerSlide invisible'>
+            	<div class='background'>
+                	<img class = 'bgImg' src = 'images/banner4.jpg' />
+                </div>
+                <div class='foreground'>
+                	<img class = 'fgImg' src = 'images/blank.png' />
+                </div>
+                <div class='infoText invisible'>
+                	<p>
+                    	The Medical Center of Plano has achieved recognition for its trauma center, excellence in nursing, commitment to quality patient care and more.
+                    </p>
+                    <a href=''>View Our Outstanding Awards<img class='arrow' src='images/slideArrow.gif' /></a>
+                </div>
+                
+                <div class='slideInfo'>
+                    <ul>
+                        <li class='originX'>1090</li>
+                        <li class='originY'>144>/li>
+                        <li class='turnX'>988</li>
+                        <li class='turnY'>65</li>
+                        <li class='destX'>800</li>
+                        <li class='destY'>65</li>
+                        <li class='textWidth'>500</li>
+                        <li class='lineHeight'>23px</li>
+                        <li class='textTop'>70</li>
+                        <li class='textLeft'>550</li>
+                        <li class='fontSize'>28px</li>
+                        <li class='fontFamily'>Helvetica</li>
+                        <li class='rgbColor'>255,255,255</li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+        <ul class='transSlides'><!--thumbnails for slides. each thumbnail should coordinate to the same slideIndex-->
+            <li class='transitionSlide selected'>
+                <img src='images/thumb1.jpg' />
+            </li>
+            <li class='transitionSlide'>
+                <img src='images/thumb2.jpg' />
+            </li>
+            <li class='transitionSlide'>
+                <img src='images/thumb3.jpg' />
+            </li>
+            <li class='transitionSlide'>
+                <img src='images/thumb4.jpg' />
+            </li>
+    	</ul>
+    </div> 
+</div>
+</body>
+<script src='/js/homepage_banner.js'></script>
+<script type='text/javascript' >
+/*
+	//constants
+	var NUM_SLIDES = 4;
+	var SLIDE_DELAY = 5000;
+	var CIRCLE_MAX_RADIUS = 10;
+	var CIRCLE_DRAW_TIME = 500;
+	var LINE_DRAW_TIME = 1000;
+	var TEXT_DRAW_TIME = 1500;
+	var FADE_TIME = 2500;
+	
+	var slideIndex = 0;
+	var prevSlideIndex=NUM_SLIDES-1;
+	
+	var timeVar, slideTimeout;
+	
+	var banner=$('#banner')[0];
+	var canvas=Raphael(banner, banner.offsetWidth, banner.offsetHeight);
+	var circle=null;
+	var circleGlow=null;
+	var line=null;
+	var text=null;
+	
+	var clicked=false;
+	
+	var circleTop, circleLeft;
+	
+	var dest = {
+			x:0,
+			y:0
+		};
+		
+	var origin = {
+			x:0,
+			y:0
+		};
+		
+	var turn = {
+		x:0,
+		y:0
+	};
+	
+	var path=null;
+	
+	function drawCircle(){
+		circleTop = parseInt($('div.slideInfo .originY').eq(slideIndex).text());
+		circleLeft = parseInt($('div.slideInfo .originX').eq(slideIndex).text());
+		
+		var xDir = turn.x-origin.x;
+		var yDir = turn.y-origin.y;
+		
+		//find angle of line and offset to edge of circle
+		var angle=Math.atan(yDir/xDir);
+		var xOffset=CIRCLE_MAX_RADIUS*Math.cos(angle);
+		var yOffset=CIRCLE_MAX_RADIUS*Math.sin(angle);
+		
+		if(xDir >0)
+			if(yDir >0){
+				circleTop -=yOffset;
+				circleLeft -=xOffset;	
+			}
+			else{
+				circleTop -=yOffset;
+				circleLeft -=xOffset;	
+			}
+		else{
+			if(yDir >0){
+				circleTop -=yOffset;
+				circleLeft +=xOffset;	
+			}
+			else{
+				circleTop +=yOffset;
+				circleLeft +=xOffset;
+			}
+		}
+			
+		
+		
+		if(circle){
+			circle.remove();
+		}
+		if(circleGlow){
+			circleGlow.remove();	
+		}
+		
+		circle = canvas.circle(circleLeft,circleTop,0);
+
+		circle.attr({
+			'stroke':'#0fcedf',
+			'stroke-width':2,
+			'opacity':.9,
+			'fill-opacity':.4,
+			'fill':'r rgba(15,206,223,.7)-rgba(15,206,223,.0)'
+		});
+		
+		var animation = Raphael.animation({
+			'r':CIRCLE_MAX_RADIUS,
+		},CIRCLE_DRAW_TIME, 'bounce');
+		
+		
+		circle.animate(animation);		
+		
+	};
+	
+	function drawLine1(){
+		
+		if(line)
+			line.remove();
+		
+		path='M '+origin.x+' '+origin.y;
+		
+		line=canvas.path(path);
+		
+		line.attr({
+			'stroke':'#0fcedf',
+			'stroke-width':2
+		});
+		
+		path+=' l '+(turn.x-origin.x)+' '+(turn.y-origin.y);
+		
+		var animation = Raphael.animation({
+			'path':path
+		},LINE_DRAW_TIME/2, 'linear');
+		
+		line.animate(animation);
+		
+		timeVar=setTimeout('drawLine2()',LINE_DRAW_TIME/2);
+	
+	};
+	
+	function drawLine2(){
+		
+		path+=' l '+(dest.x - turn.x)+' '+(dest.y-turn.y);
+		
+		var animation = Raphael.animation({
+			'path':path
+		},LINE_DRAW_TIME/2, 'linear');
+		
+		line.animate(animation);
+	};
+	
+	function drawText(){
+		
+		var x, y, str, font, fontSize, color, lineHeight;
+		
+		x = parseInt($('div.slideInfo .textLeft').eq(slideIndex).text());
+		y = parseInt($('div.slideInfo .textTop').eq(slideIndex).text());
+		font = $('div.slideInfo .fontFamily').eq(slideIndex).text();
+		fontSize = $('div.slideInfo .fontSize').eq(slideIndex).text();
+		color = $('div.slideInfo .rgbColor').eq(slideIndex).text();	
+		lineHeight = $('div.slideInfo .lineHeight').eq(slideIndex).text();
+		
+		$('div.infoText').eq(slideIndex).css({
+			'top':y,
+			'left':x,
+			'font-family':font,
+			'font-size':fontSize,
+			'line-height':lineHeight,
+			'color':'rgb('+color+')'
+		});
+		$('div.infoText').eq(slideIndex).fadeIn(TEXT_DRAW_TIME);
+
+	};
+			
+	function advanceSlide(index){
+			$('li.bannerSlide').eq(slideIndex).fadeOut(FADE_TIME);	
+			$('div.infoText').eq(slideIndex).hide();
+			if(index < 0 ){
+				slideIndex++;
+				slideIndex%=NUM_SLIDES;
+			}
+			else{
+				slideIndex=index;
+			}
+			
+			$('li.transitionSlide').removeClass('selected');
+			$('li.transitionSlide').eq(slideIndex).addClass('selected');
+			
+			transitionSlide();
+			
+	};
+	
+	function drawOverlay(){
+		origin.x=parseInt($('div.slideInfo .originX').eq(slideIndex).text());
+		origin.y=parseInt($('div.slideInfo .originY').eq(slideIndex).text());
+		turn.x=parseInt($('div.slideInfo .turnX').eq(slideIndex).text());
+		turn.y=parseInt($('div.slideInfo .turnY').eq(slideIndex).text());
+		dest.x=parseInt($('div.slideInfo .destX').eq(slideIndex).text());
+		dest.y=parseInt($('div.slideInfo .destY').eq(slideIndex).text());
+				
+		drawCircle();
+		timeVar=setTimeout('drawLine1()',CIRCLE_DRAW_TIME);	
+		timeVar=setTimeout('drawText()',LINE_DRAW_TIME);
+	};
+	
+	function transitionSlide(){
+			if(circle)
+				circle.remove();
+			if(line)
+				line.remove();
+			if(circleGlow)
+				circleGlow.remove();	
+				
+			$('li.bannerSlide').eq(slideIndex).fadeIn(FADE_TIME);
+			timeVar=setTimeout('drawOverlay()',FADE_TIME);
+			
+			slideTimeout=setTimeout('advanceSlide(-1)',SLIDE_DELAY+FADE_TIME+CIRCLE_DRAW_TIME+LINE_DRAW_TIME+TEXT_DRAW_TIME);
+	};
+	
+	
+	$('li.transitionSlide').click(function(){
+		clicked=true;
+		clearTimeout(slideTimeout);
+		clearTimeout(timeVar);
+		advanceSlide($(this).index());
+	});
+	
+	$(document).ready(function(){
+		drawOverlay();
+		slideTimeout=setTimeout('advanceSlide(-1)',SLIDE_DELAY);
+		
+		});
+*/
+</script>
+</html>
